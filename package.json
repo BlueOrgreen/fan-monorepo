@@ -1,0 +1,48 @@
+{
+    "name": "fan-monorepo",
+    "private": true,
+    "scripts": {
+        "gen": "turbo gen workspace",
+        "build": "turbo build",
+        "dev": "turbo dev",
+        "lint": "turbo lint",
+        "api:dev": "turbo dev --filter=utils --filter=api",
+        "api:build": "turbo build --filter=api",
+        "api:start": "turbo start --filter=api",
+        "api:cli": "turbo cli --filter=api --",
+        "admin:dev": "turbo dev --filter=admin",
+        "admin:build": "turbo dev --filter=build",
+        "admin:start": "turbo start --filter=admin",
+        "aa:dev": "turbo dev --filter=api --filter=admin",
+        "web:dev": "turbo dev --filter=web",
+        "web:build": "turbo build --filter=web",
+        "web:start": "turbo start --filter=web",
+        "wa:dev": "turbo dev --filter=api --filter=web",
+        "upall": "pnpm up --filter @fan-app/* --latest && pnpm up --latest",
+        "clean": "rimraf --glob '**/node_modules' && rimraf node_modules",
+        "install:all": "bash scripts/install-all.sh"
+    },
+    "devDependencies": {
+        "@fan-app/code": "workspace:*",
+        "eslint": "^8.57.0",
+        "prettier": "^3.2.5",
+        "rimraf": "^5.0.7",
+        "turbo": "latest"
+    },
+    "packageManager": "pnpm@8.9.0",
+    "engines": {
+        "node": ">=18"
+    },
+    "pnpm": {
+        "updateConfig": {
+            "ignoreDependencies": [
+                "eslint"
+            ]
+        },
+        "peerDependencyRules": {
+            "allowAny": [
+                "@typescript-eslint/eslint-plugin"
+            ]
+        }
+    }
+}

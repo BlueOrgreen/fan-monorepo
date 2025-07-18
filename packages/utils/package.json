@@ -1,0 +1,37 @@
+{
+    "name": "@fan-app/utils",
+    "version": "0.0.0",
+    "private": true,
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/es/index.mjs",
+    "types": "./dist/cjs/index.d.ts",
+    "exports": {
+        "import": {
+            "types": "./dist/es/index.d.ts",
+            "default": "./dist/es/index.js"
+        },
+        "require": {
+            "types": "./dist/cjs/index.d.cts",
+            "default": "./dist/cjs/index.cjs"
+        }
+    },
+    "scripts": {
+        "dev": "bunchee -w  --tsconfig tsconfig.build.json",
+        "build": "bunchee --tsconfig tsconfig.build.json",
+        "lint": "eslint . --ext ts,tsx"
+    },
+    "devDependencies": {
+        "@fan-app/code": "workspace:*",
+        "@types/node": "^20.12.12",
+        "bunchee": "^5.1.5",
+        "eslint": "^8.57.0",
+        "prettier": "^3.2.5",
+        "typescript": "^5.4.5"
+    },
+    "dependencies": {
+        "deepmerge": "^4.3.1"
+    }
+}

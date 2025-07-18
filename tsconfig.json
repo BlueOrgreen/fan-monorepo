@@ -1,0 +1,3 @@
+{
+  "extends": "@fan-app/code/tsconfig/base.json"
+}
